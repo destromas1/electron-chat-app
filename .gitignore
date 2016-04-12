@@ -26,6 +26,8 @@ build/Release
 # Dependency directory
 node_modules
 
+electron-desktop-intro-win32-x64
+
 # Optional npm cache directory
 .npm
 
