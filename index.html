@@ -1,0 +1,49 @@
+<html >
+  <head>
+    <title>Hello Electron!</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+  </head>
+  <body ng-app="app">
+    <div>
+      <div data-ng-controller="chatCtrl">
+        <div>
+          <h1>Chat Server ( {{userId}} )</h1>
+
+          <div class="user-area">
+            <b>USERS</b>
+            <div>
+              <div ng-repeat="user in userList track by $index">
+                {{user}}
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="content">
+              <div ng-repeat="chatMsg in chatMessages">
+                <b>{{chatMsg.userId}}</b> {{chatMsg.message}}
+                <br/>
+              </div>
+            </div>
+            <input ng-model="textMsg" ng-keyup="$event.keyCode == 13 && sendMsg()" style="width:200px;" />
+            <input type="button" value="send" ng-click="sendMsg()" />
+          </div>
+
+        </div>
+
+      </div>
+  </div>
+            
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+    <script src="app.js"></script>
+
+  </body>
+</html>
